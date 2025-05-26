@@ -9,9 +9,12 @@ function handleSendMessage(message) {
   sendMessage()
   renderChatFlow(messages)
 }
+function handleSetCurrrentMessage(message) {
+  setCurrentMessage(message)
+}
 
-function handlePingNickname(text){
+function handlePingNickname(text) {
   console.log(text)
   pingNickname(text)
-  renderInputMessage (currentMessage) 
+  renderInputMessage(currentMessage)
 }

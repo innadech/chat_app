@@ -8,8 +8,12 @@ function setCurrentMessage(message) {
 }
 
 function pingNickname(nickname) {
-  currentMessage = ''
-  currentMessage = `@${nickname} ${currentMessage}`
+  // currentMessage = ''
+  if (currentMessage.includes(nickname)) {
+    return
+  } else {
+    currentMessage = `@${nickname} ${currentMessage}`
+  }
 }
 
 function addListNickname() {

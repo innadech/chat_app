@@ -7,10 +7,15 @@ elButtonSendMessage.onclick = onClickButtonSendMessage
 elLabelLogin.onclick = onClickLabelLogin
 elInputMessage.onkeypress = onKeyPressInput
 elInputLogin.onkeypress = onKeyPressInputLogin
+elInputMessage.oninput = onInputMessage
+
+function onInputMessage() {
+  handleSetCurrrentMessage(elInputMessage.value)
+}
 
 function onClickSpan(e) {
   console.log(e.target)
-  elInputMessage.value = ''
+  // elInputMessage.value = ''
   handlePingNickname(e.target.textContent)
 }
 function renderInputMessage(text) {
