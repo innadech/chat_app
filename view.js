@@ -15,7 +15,8 @@ function onInputMessage() {
 
 function onClickSpan(e) {
   console.log(e.target)
-  // elInputMessage.value = ''
+  const message = elInputMessage.value
+  handleSetCurrrentMessage(message)
   handlePingNickname(e.target.textContent)
 }
 function renderInputMessage(text) {
@@ -26,8 +27,12 @@ function renderInputMessage(text) {
 function onKeyPressInputLogin(e) {
   let key = e.key
   if (key === 'Enter') {
-    // target.classList.add("slide-modal")
-    onClickLabelLogin()
+    const checkbox = document.querySelector('#chk_sm')
+    if (checkbox) {
+      checkbox.checked = true
+      console.log(checkbox)
+      onClickLabelLogin()
+    }
   }
 }
 

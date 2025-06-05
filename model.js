@@ -8,13 +8,36 @@ function setCurrentMessage(message) {
 }
 
 function pingNickname(nickname) {
-  // currentMessage = ''
-  if (currentMessage.includes(nickname)) {
+  // Проверяем, есть ли уже никнейм в currentMessage
+  if (currentMessage.indexOf('@') !== -1) {
+    // Если никнейм есть, удаляем старый никнейм (до первого пробела)
+    const spaceIndex = currentMessage.indexOf(' ')
+    if (spaceIndex !== -1) {
+      currentMessage = currentMessage.substring(spaceIndex + 1) // Удаляем всё до первого пробела
+    } else {
+      currentMessage = '' // Если пробела нет, очищаем сообщение
+    }
+  }
+  // Добавляем новый никнейм
+  if (nickname) {
+    currentMessage = `@${nickname} ${currentMessage}`.trim()
+  }
+}
+function pingNickname(nickname) {
+  if (currentMessage.indexOf(`@${nickname}`) !== -1) {
     return
   } else {
     currentMessage = `@${nickname} ${currentMessage}`
   }
 }
+
+// function pingNickname(nickname) {
+//   if (currentMessage.includes(nickname)) {
+//     return
+//   } else {
+//     currentMessage = `@${nickname} ${currentMessage}`
+//   }
+// }
 
 function addListNickname() {
   if (!nicknames.includes(currentNickname)) {
